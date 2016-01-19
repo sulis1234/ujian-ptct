@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+	head
+		title Daftar #{ucfirst(collection)}
+		link(rel='stylesheet', href='http://#{baseurl}/css/bootstrap.min.css')
+	body
+		h2.text-center DATA BARANG
+		hr
+		br
+		div().row
+			div().col-md-8.col-md-offset-2
+				if objects.length > 0
+					div.panel.panel-default
+						div.panel-body
+							table(data-role='table').table.table-responsive.table-striped
+								thead
+									tr
+										th='#'
+										th='Kode Barang'
+										th='Nama Barang'
+										th='Merk'
+										th='Harga'
+								tbody
+									each obj,index in objects
+										tr
+											td=index+1
+											td
+												a(href='http://#{baseurl}/#{collection}/#{obj._id}', title='Lihat record ini') #{obj.kd_brg}
+											td
+												a(href='http://#{baseurl}/#{collection}/#{obj._id}', title='Lihat record ini') #{obj.nm_brg}
+											td
+												a(href='http://#{baseurl}/#{collection}/#{obj._id}', title='Lihat record ini') #{obj.merk}
+											td
+												a(href='http://#{baseurl}/#{collection}/#{obj._id}', title='Lihat record ini') #{obj.harga}
+							a(role='button',href='http://#{baseurl}/#{collection}/new').btn.btn-success Tambah Data

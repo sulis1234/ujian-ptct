@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+	head
+		title Daftar #{ucfirst(collection)}
+		link(rel='stylesheet', href='../../css/bootstrap.min.css')
+		style .btn {margin:10px 10px 10px 0px;}
+	body
+		#container
+			- var obj = objects
+			div.col-md-8.col-md-offset-2
+				div.panel.panel-default
+					div.panel-heading
+						Ubah Data Barang
+					div.panel-body
+						form(method='post', action='')
+							div.form-group
+								label(for='kd_brg') Kode Barang
+								input(type='text', name='kd_brg', id='kd_brg', value='#{obj.kd_brg}').form-control
+							div.form-group
+								label(for='nm_brg') Nama Barang
+								input(type='text', name='nm_brg', id='nm_brg', value='#{obj.nm_brg}').form-control
+							div.form-group
+								label(for='merk') Merk
+								input(type='text' name='merk', id='merk', value='#{obj.merk}').form-control
+							div.form-group
+								label(for='harga') Harga
+								textarea(name='harga', id='harga').form-control #{obj.harga}
+							div.form-group
+								input(type='submit', value='Ubah').btn.btn-warning
+								a(href='/#{collection}', role='button').btn.btn-danger Batal

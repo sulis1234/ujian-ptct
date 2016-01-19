@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+	head
+		title Daftar #{ucfirst(collection)}
+		link(rel='stylesheet', href='../css/bootstrap.min.css')
+		style .dl-horizontal dt {text-align:left;} .btn {margin:10px 10px 10px 0;}
+	body
+		div().row
+			div().col-md-8.col-md-offset-2
+				- var obj = objects
+				if obj
+					div.panel.panel-default
+						div.panel-body
+							dl.dl-horizontal
+								dt='Kode Barang'
+								dd #{obj.kd_brg}
+								dt='Nama Barang'
+								dd #{obj.nm_brg}
+								dt='Merk'
+								dd #{obj.merk}
+								dt='Harga'
+								dd #{obj.harga}
+								dd
+									a(href='edit/#{obj._id}', role='button').btn.btn-warning Ubah
+									
+									a(href='delete/#{obj._id}', role='button').btn.btn-danger Hapus 
+									
+									a(href='../#{collection}', role='button').btn.btn-primary Daftar Barang 
